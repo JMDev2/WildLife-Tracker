@@ -28,17 +28,25 @@ public class EndangeredAnimalDao implements EndangeredAnimalManagement{
     @Override
     public void update(EndangeredAnimal endangeredAnimal) {
         try(Connection con = sql2o.open()){
-            String sql = "UPDATE animals SET name = :name WHERE id = :id";
+            String sql = "UPDATE animals SET name = :name, health = :health, age = :age WHERE id = :id";
             con.createQuery(sql)
-                    .addParameter("id", endangeredAnimal.id)
                     .addParameter("name", endangeredAnimal.name)
+                    .addParameter("health", endangeredAnimal)
+                    .addParameter("age", endangeredAnimal)
                     .executeUpdate();
         }
     }
-
+    //findsAll
     @Override
     public EndangeredAnimal EndangeredAnimal(int id) {
-        return null;
+        try (Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM animals where id=:id";
+            EndangeredAnimal endangeredAnimal = con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(EndangeredAnimal.class);
+            return endangeredAnimal;
+
+        }
     }
             //READ
 
