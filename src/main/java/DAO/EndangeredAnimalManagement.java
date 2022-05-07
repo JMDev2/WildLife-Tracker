@@ -13,7 +13,7 @@ public interface EndangeredAnimalManagement {
 
     //Read
     EndangeredAnimal EndangeredAnimal(int id);
-    List<EndangeredAnimal> getEndangeredAnimalById(int id);
+    List<EndangeredAnimal> getEndangeredAnimal();
 
     //Delete
     void deleteEndangeredAnimal(int id);
