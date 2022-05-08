@@ -1,6 +1,10 @@
-package models;
-
+import DAO.EndangeredAnimalDao;
+import DAO.NonEndangeredAnimalDao;
+import DAO.SightingDao;
 import models.Animal;
+import models.EndangeredAnimal;
+import models.NonEndangeredAnimal;
+import models.Sighting;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -20,23 +24,82 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/newanimal", (request, response) -> {
+//        new animal
+
+        get("/newanimal/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            String heroName = request.queryParams("heroName");
+//            String heroName = request.queryParams("name");
             return new ModelAndView(model, "newanimal.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/animals", (request, response) -> {
+        post("/newanimalsdetails/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            String name = request.queryParams("name");
-            try {
-                Animal animal = new Animal(name);
-                animal.add();
-            } catch (IllegalArgumentException exception) {
-                System.out.println("Please enter an animal name.");
-            }
-            response.redirect("/animals");
-            return new ModelAndView(model, layout);
+            String animalName = request.queryParams("name");
+            NonEndangeredAnimal nonEndangeredAnimal = new NonEndangeredAnimal(animalName);
+            NonEndangeredAnimalDao nonEndangeredAnimalDao = new NonEndangeredAnimalDao();
+            nonEndangeredAnimalDao.add(nonEndangeredAnimal);
+            response.redirect("/");
+            return null;
+        },new HandlebarsTemplateEngine());
+
+
+
+//        endangeredanimal
+        get("/newendangeredanimal/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+//            String heroName = request.queryParams("name");
+            return new ModelAndView(model, "newendangeredanimal.hbs");
         }, new HandlebarsTemplateEngine());
+
+        post("/endangeredAnimaldetails/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String animalName = request.queryParams("name");
+            String animalhealth = request.queryParams("health");
+            String animalAge = request.queryParams("age");
+            EndangeredAnimal endangeredAnimal = new EndangeredAnimal(animalName, animalhealth,animalAge);
+            EndangeredAnimalDao endangeredAnimalDao = new EndangeredAnimalDao();
+            endangeredAnimalDao.add(endangeredAnimal);
+            response.redirect("/");
+            return null;
+        },new HandlebarsTemplateEngine());
+
+
+//        sighting
+        get("/newsighting/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+//            String heroName = request.queryParams("name");
+            return new ModelAndView(model, "newsighting.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/sightingdetails/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String location = request.queryParams("location");
+            String rangerName = request.queryParams("rangerName");
+            String animalName = request.queryParams("animalName");
+            Sighting sighting = new Sighting (location, rangerName, animalName);
+            SightingDao sightingDao = new SightingDao();
+            sightingDao.add(sighting);
+            response.redirect("/");
+            return null;
+        },new HandlebarsTemplateEngine());
+
+//        display path
+        get("/allanimals/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+//            String heroName = request.queryParams("name");
+            EndangeredAnimalDao endangeredAnimalDao = new EndangeredAnimalDao();
+            model.put("animals", endangeredAnimalDao.getEndangeredAnimal());
+//            SightingDao sightingDao = new SightingDao();
+//            model.put("sight", sightingDao.getAllSightings());
+            return new ModelAndView(model, "allanimals.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
+
+
+
+
+
     }
 }
