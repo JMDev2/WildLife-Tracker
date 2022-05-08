@@ -52,7 +52,7 @@ public class NonEndangeredAnimalDao implements NonEndangeredAnimalManagement {
     public List<NonEndangeredAnimal> getNonEndangeredAnimal() {
         try(Connection con = sql2o.open()){
             String sql = "SELECT * FROM animals";
-            return con.createQuery(sql).executeAndFetch(NonEndangeredAnimal.class);
+            return con.createQuery(sql).throwOnMappingFailure(false).executeAndFetch(NonEndangeredAnimal.class);
         }
     }
     //DELETE
