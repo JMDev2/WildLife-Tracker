@@ -1,0 +1,28 @@
+{{#partial "content"}}
+
+    <div class="container text-start mx-auto">
+
+        <div class="card mb-3 mx-auto" style="max-width: 540px;">
+            <div class="row g-0">
+
+                <div class="col-md-8">
+                    <div class="card-body">
+
+                        <p class="card-text">
+
+
+                        <p>Name: </p>
+
+                        <p class="card-footer">
+                        <p><a class="btn btn-danger justify-content-left" href="/squads/{{hero.squadId}}/heros/{{hero.id}}/delete">Kill {{hero.heroName}}</a> </p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{{/partial}}
+
+{{> "layout.hbs"}}
