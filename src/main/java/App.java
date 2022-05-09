@@ -83,7 +83,7 @@ public class App {
             return null;
         },new HandlebarsTemplateEngine());
 
-//        display path
+//        display path animals
         get("/allanimals/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
 //            String heroName = request.queryParams("name");
@@ -94,11 +94,20 @@ public class App {
             return new ModelAndView(model, "allanimals.hbs");
         }, new HandlebarsTemplateEngine());
 
+//        display sightings
+        get("/sightingdetails/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            SightingDao sightingDao = new SightingDao();
+            model.put("sight", sightingDao.getAllSightings());
+            return new ModelAndView(model, "sightingdetails.hbs");
+        }, new HandlebarsTemplateEngine());
 
-
-
-
-
+        get("/index", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            SightingDao sightingDao = new SightingDao();
+            model.put("sight", sightingDao.getAllSightings());
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
 
 
     }

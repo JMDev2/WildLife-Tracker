@@ -21,13 +21,25 @@ public class EndangeredAnimalTest {
         endangeredAnimalDao.add(endangeredAnimal);
         assertTrue(endangeredAnimalDao.getEndangeredAnimal().get(0).equals(endangeredAnimal));
     }
-//    @Test
-//    public void find_returnsMonsterWithSameId_secondMonster() {
-//        EndangeredAnimal endangeredAnimal = new EndangeredAnimal("Rhino", EndangeredAnimal.HEALTHY, EndangeredAnimal.YOUNG);
-//        EndangeredAnimalDao endangeredAnimalDao1 = new EndangeredAnimalDao();
-//        endangeredAnimalDao1.add(endangeredAnimal);
-//        EndangeredAnimal endangeredAnimal2 = new EndangeredAnimal("Rhino", EndangeredAnimal.HEALTHY, EndangeredAnimal.YOUNG);
-//        endangeredAnimalDao1.add(endangeredAnimal2);
-//        assertEquals(endangeredAnimalDao1.EndangeredAnimal(1), endangeredAnimal2);
-//    }
+    @Test
+    public void squad_instantiatesgetName_true() {
+        EndangeredAnimal endangeredAnimal = new EndangeredAnimal("Rhino", EndangeredAnimal.HEALTHY, EndangeredAnimal.YOUNG);
+        EndangeredAnimalDao endangeredAnimalDao = new EndangeredAnimalDao();
+        assertEquals("Rhino", endangeredAnimal.getName());
+    }
+    @Test
+    public void squad_instantiatesgethealth_true() {
+        EndangeredAnimal endangeredAnimal = new EndangeredAnimal("Rhino", EndangeredAnimal.HEALTHY, EndangeredAnimal.YOUNG);
+        EndangeredAnimalDao endangeredAnimalDao = new EndangeredAnimalDao();
+        assertEquals("healthy", endangeredAnimal.getHealth());
+    }
+    @Test
+    public void save_assignsIdToObject() {
+        EndangeredAnimal endangeredAnimal = new EndangeredAnimal("Rhino", EndangeredAnimal.HEALTHY, EndangeredAnimal.YOUNG);
+        EndangeredAnimalDao endangeredAnimalDao = new EndangeredAnimalDao();
+        endangeredAnimalDao.add(endangeredAnimal);
+        EndangeredAnimal endangeredAnimal1 = endangeredAnimalDao.getEndangeredAnimal().get(0);
+        assertEquals(endangeredAnimal.getId(), endangeredAnimal1.getId());
+    }
+
 }

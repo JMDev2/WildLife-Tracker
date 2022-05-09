@@ -22,4 +22,23 @@ public class NonEndangeredAnimalTest {
         nonendangeredAnimalDao.add(nonendangeredAnimal);
         assertTrue(nonendangeredAnimalDao.getNonEndangeredAnimal().get(0).equals(nonendangeredAnimal));
     }
+
+
+    @Test
+    public void squad_instantiatesgetName_true() {
+        NonEndangeredAnimal nonendangeredAnimal = new NonEndangeredAnimal("rhino");
+        NonEndangeredAnimalDao nonendangeredAnimalDao = new NonEndangeredAnimalDao();
+        assertEquals("Rhino", nonendangeredAnimal.name);
+    }
+
+    @Test
+    public void save_assignsIdToObject() {
+        NonEndangeredAnimal nonendangeredAnimal = new NonEndangeredAnimal("rhino");
+        NonEndangeredAnimalDao nonendangeredAnimalDao = new NonEndangeredAnimalDao();
+        nonendangeredAnimalDao.add(nonendangeredAnimal);
+        NonEndangeredAnimal nonendangeredAnimal1 = nonendangeredAnimalDao.getNonEndangeredAnimal().get(0);
+        assertEquals(nonendangeredAnimal.getId(), nonendangeredAnimal1.getId());
+    }
+
+
 }

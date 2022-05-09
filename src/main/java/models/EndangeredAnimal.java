@@ -12,6 +12,10 @@ public class EndangeredAnimal extends Animal {
     public static final String YOUNG = "young";
     public static final String ADULT = "adult";
     public EndangeredAnimal(String name, String health, String age) {
+        if(name.equals("")){
+            throw new IllegalArgumentException("Please enter all input fields.");
+        }
+
         this.name = name;
         this.age = age;
         this.health= health;

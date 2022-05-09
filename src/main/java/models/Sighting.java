@@ -1,19 +1,32 @@
 package models;
 
-import java.sql.Timestamp;
+import java.security.Timestamp;
 import java.util.Objects;
 
 public class Sighting {
     private int id;
+    private String name;
     private String location;
-    private String rangerName;
-    private Timestamp timeStamp;
+    private String ranger;
+    private Timestamp seen;
 
-    public Sighting(int id, String location, String rangerName) {
-        this.id = id;
-        this.location = location;
-        this.rangerName = rangerName;
-    }
+//    public Sighting( String name, String location, String ranger) {
+//        this.id = id;
+//        this.name = name;
+//        this.location = location;
+//        this.ranger = ranger;
+//        this.seen = seen;
+
+           public Sighting( String name, String location, String ranger) {
+
+
+               this.name = name;
+               this.location = location;
+               this.ranger = ranger;
+               this.seen = seen;
+
+        }
+
 
     @Override
     public boolean equals(Object o) {
@@ -21,15 +34,24 @@ public class Sighting {
         if (o == null || getClass() != o.getClass()) return false;
         Sighting sighting = (Sighting) o;
         return id == sighting.id &&
+                Objects.equals(name, sighting.name) &&
                 Objects.equals(location, sighting.location) &&
-                Objects.equals(rangerName, sighting.rangerName);
+                Objects.equals(ranger, sighting.ranger);
+//                Objects.equals(timeStamp, sighting.timeStamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, location, rangerName);
+        return Objects.hash(id, name, location, ranger);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getId() {
         return id;
@@ -47,19 +69,24 @@ public class Sighting {
         this.location = location;
     }
 
-    public String getRangerName() {
-        return rangerName;
+    public String getRanger() {
+        return ranger;
     }
 
-    public void setRangerName(String rangerName) {
-        this.rangerName = rangerName;
+    public void setRanger(String ranger) {
+        this.ranger = ranger;
     }
 
-    public Timestamp getTimeStamp() {
-        return timeStamp;
+    public Timestamp getSeen() {
+        return seen;
     }
 
-    public void setTimeStamp(Timestamp timeStamp) {
-        this.timeStamp = timeStamp;
-    }
+
+    //    public Timestamp getTimeStamp() {
+//        return timeStamp;
+//    }
+
+//    public void setTimeStamp(Timestamp timeStamp) {
+//        this.timeStamp = timeStamp;
+//    }
 }
