@@ -22,13 +22,13 @@ public class EndangeredAnimalTest {
         assertTrue(endangeredAnimalDao.getEndangeredAnimal().get(0).equals(endangeredAnimal));
     }
     @Test
-    public void squad_instantiatesgetName_true() {
+    public void EndangeredAnimal_instantiatesgetName_true() {
         EndangeredAnimal endangeredAnimal = new EndangeredAnimal("Rhino", EndangeredAnimal.HEALTHY, EndangeredAnimal.YOUNG);
         EndangeredAnimalDao endangeredAnimalDao = new EndangeredAnimalDao();
         assertEquals("Rhino", endangeredAnimal.getName());
     }
     @Test
-    public void squad_instantiatesgethealth_true() {
+    public void EndangeredAnimal_instantiatesgethealth_true() {
         EndangeredAnimal endangeredAnimal = new EndangeredAnimal("Rhino", EndangeredAnimal.HEALTHY, EndangeredAnimal.YOUNG);
         EndangeredAnimalDao endangeredAnimalDao = new EndangeredAnimalDao();
         assertEquals("healthy", endangeredAnimal.getHealth());
