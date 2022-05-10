@@ -1,0 +1,72 @@
+{{#partial "content"}}
+    <nav class="navbar navbar-expand-lg text-light bg-success">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/index">Home <span class="sr-only">Home</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sightingdetails/new">View Sighting</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/allanimals/new">View All Animals</a>
+            </li>
+        </ul>
+    </div>
+    </nav>
+<!-- Mask & flexbox options-->
+<div class="mask rgba-black-light align-items-center">
+    <!-- Content -->
+    <div class="container">
+        <!--Grid row-->
+        <div class="indexRow">
+            <!--Grid column-->
+            <div class="col-md-12 mb-4 white-text text-center">
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <a href="/newanimal/new"><button type="button" class="btn btn-primary">Add Animal</button></a>
+                        <a href="/newendangeredanimal/new"><button type="button" class="btn btn-warning">Add Endangered Animal</button></a>
+                        <h3 class="hr-light text-monospace stylistsTitle text-warning">All Animals:</h3>
+                        <table class="table table-light">
+                            <thead>
+                            <tr>
+
+                                <th scope="col">Location</th>
+                                <th scope="col">Ranger Name</th>
+                                <th scope="col">Animal Name</th>
+                                <th scope="col">Time Seen</th>
+                                <th scope="col">Delete Sight</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                                {{#each sight}}
+                                    <tr>
+                                        <td>{{name}}</td>
+                                        <td>{{location}}</td>
+                                        <td>{{ranger}}</td>
+                                        <td>{{seen}}</td>
+                                        <td><a href="/sighting/{{id}}/delete">Delete</a></td>
+                                    </tr>
+
+                                {{/each}}
+                            </tbody>
+
+                            </table>
+
+                    </div>
+                </div>
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </div>
+    <!-- Content -->
+</div>
+<!-- Mask & flexbox options-->
+</div>
+
+
+{{/partial}}
+
+{{> "layout.hbs"}}

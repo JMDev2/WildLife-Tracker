@@ -7940,13 +7940,6 @@ public void Sighting_instantiatesgetName_true() {
 
 
 
-
-
-
-
-
-
-
 //    public void save_recordsTimeOfCreationInDatabase() {
 //        Sighting sighting = new Sighting("Zone A","Bubbles", 1);
 //        SightingDao sightingDao = new SightingDao();

@@ -79,6 +79,9 @@ The user is able to;
 
 * Cascading Style Sheets.
  
+### LiveLink 
+
+https://maina-wildlifetracker.herokuapp.com/
 
 ### License
 
@@ -102,4 +105,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.<br>
 
-Copyright (c) 2022 **JOSEPH MAINA**
+Copyright (c) 2022 **[JOSEPH MAINA](https://github.com/JOSEPHMAINA1995)**

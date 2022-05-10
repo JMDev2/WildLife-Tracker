@@ -1,0 +1,18 @@
+body{
+
+    background-image: url(https://images.unsplash.com/photo-1601625463687-25541fb72f62?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    align-items: center;
+
+
+}
+
+.card{
+    height: 300px;
+    width: 300px;
+}
+table{
+    width:100px;
+}
