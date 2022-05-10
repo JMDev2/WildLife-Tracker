@@ -28,7 +28,7 @@ public class NonEndangeredAnimalTest {
     public void squad_instantiatesgetName_true() {
         NonEndangeredAnimal nonendangeredAnimal = new NonEndangeredAnimal("rhino");
         NonEndangeredAnimalDao nonendangeredAnimalDao = new NonEndangeredAnimalDao();
-        assertEquals("Rhino", nonendangeredAnimal.name);
+        assertEquals("rhino", nonendangeredAnimal.name);
     }
 
     @Test
