@@ -43,8 +43,6 @@ public class App {
             return null;
         },new HandlebarsTemplateEngine());
 
-
-
 //        endangeredanimal
         get("/newendangeredanimal/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
@@ -63,7 +61,6 @@ public class App {
             response.redirect("/");
             return null;
         },new HandlebarsTemplateEngine());
-
 
 //        sighting
         get("/newsighting/new", (request, response) -> {
@@ -128,8 +125,6 @@ public class App {
             response.redirect("/sightingdetails/new");
             return null;
         }, new HandlebarsTemplateEngine());
-
-
 
     }
 }
