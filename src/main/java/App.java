@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.lang.Integer.parseInt;
 import static spark.Spark.*;
 public class App {
     public static void main(String[] args) {
@@ -108,6 +109,26 @@ public class App {
             model.put("sight", sightingDao.getAllSightings());
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
+
+        //get: delete an individual animal
+        get("/animal/:id/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int deletedAnimal = parseInt(request.params("id"));
+            NonEndangeredAnimalDao nonEndangeredAnimalDao = new NonEndangeredAnimalDao();
+            nonEndangeredAnimalDao.deleteNonEndangeredAnimal(deletedAnimal);
+            response.redirect("/allanimals/new");
+            return null;
+        }, new HandlebarsTemplateEngine());
+
+        get("/sighting/:id/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int deletedSighting = parseInt(request.params("id"));
+            SightingDao sightingDao = new SightingDao();
+            sightingDao.delete(deletedSighting);
+            response.redirect("/sightingdetails/new");
+            return null;
+        }, new HandlebarsTemplateEngine());
+
 
 
     }
